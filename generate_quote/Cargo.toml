@@ -7,3 +7,7 @@ edition = "2021"
 
 [dependencies]
 rand = "*"
+actix-web = "4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.51"
+unidecode = "0.3.0"
