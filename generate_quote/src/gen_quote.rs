@@ -1,5 +1,5 @@
 use actix_web::web::Json;
-use actix_web::{HttpResponse, get};
+use actix_web::{HttpResponse, post};
 use serde::{Deserialize, Serialize};
 use unidecode::unidecode;
 
@@ -19,7 +19,7 @@ pub struct Response {
     quote: String
 }
 
-#[get("/quote")]
+#[post("/quote")]
 pub async fn gen_quote_endpoint(length: Json<Request>) -> HttpResponse{
     let quote = gen_quote(("all_quotes.txt").to_string(), 2, length.into_inner().length.parse::<usize>().unwrap());
     HttpResponse::Ok()
